@@ -1,0 +1,22 @@
+PS C:\Users\91887> az login
+A web browser has been opened at https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
+The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
+9aaf2ec1-145d-4d1a-93e4-a1880eeda916 'Contoso Lab'
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "ac9c41db-71f2-4658-9f07-d9bde1476d78",
+    "id": "f790a660-c085-4f59-b4db-5637f5559879",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Free Trial",
+    "state": "Enabled",
+    "tenantId": "ac9c41db-71f2-4658-9f07-d9bde1476d78",
+    "user": {
+      "name": "jananitew@gmail.com",
+      "type": "user"
+    }
+  }
+]
+
+Reference : https://learn.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
