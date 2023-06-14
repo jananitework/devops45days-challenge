@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "projectName": {
+        "value": "task3"
+      },
+      "adminUsername": {
+        "value": "jananite"
+      },
+      "adminPublicKey": {
+        "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0MW50Kd/EHwPzFYI/CkCq+PnvPGXILuWn+HXO5aOV17GXgkOVE8aptYk5KBEFl+pYbelN/8IwvFK0VMxX1MkODpKhfZsUCxB43WsZlkO1z7xzI+4Le7cLpPE9DVBa0o23Nc9/swkh8zKA0twUuRs+AekLDyYP1vImKV65f8JNDnYinRTGH39Q5mjklL9v0IQrkfQF23ZYYQYvHQTa25WDEFR7gI9N/bjSya995Irm3J9Uk0/puG7p95BQZ2/Sqq1LztlDHDrk62eCUQf60/+fMn8rcDgpCB4S6gLUcEeiatwfu7AuHbaufE7mnAtAmUsc7R3jClaNKgdNdOitA8CvKC1RYI2PV9syxNt9nzG7LlzVThoXOgdxPqQEEGDbYht4FCfUP4NgOnJFlAeKY3hEQw4MpBOlz/tiRcaNWErQxmynvuhkeuZRDAra7ZOcwU784tH3UJW6fodzTSm+K9odtp3EHr4Tu0iwY93Lx380zC7PdZV01ZEP4UyW9vCGBlLvVCOMMUMFCCxX7BvfhgA1DN+BpBQNTlkkuWYljkO1BUQ3vyfMrsWXkftQEIWPlDCICGWH8QbCvHcmoY5teJ/J1SYj12ZQuE0/4k3MSA+uCOtWoL/fH9AYebAOFc8/EZQB0b647PsqCgXKUuC8yox/vPmzoHEGRiSR9uWWE5+2YQ== 91887@DESKTOP-CNIQLGC"
+      }
+    }
+  }
