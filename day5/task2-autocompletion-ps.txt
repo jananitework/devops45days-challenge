@@ -1,0 +1,6 @@
+PS C:\Users\91887> notepad $PROFILE
+# prompted with notepad file. Enter the contents as in https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli#enable-tab-completion-on-powershell
+
+PS C:\Users\91887> Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+#Open a new tab in powershell and auto completion for az commands will be enabled
