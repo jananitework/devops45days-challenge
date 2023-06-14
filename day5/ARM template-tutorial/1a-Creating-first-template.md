@@ -15,6 +15,7 @@ PS C:\Users\91887> az group create --name rg1 --location "Central India"
   "tags": null,
   "type": "Microsoft.Resources/resourceGroups"
 }
+
 #Check in the azure portal if the resource group is created
 
 ![rg1](https://github.com/jananitework/devops45days-challenge/assets/136428700/8aef10c5-2c7d-4308-ae6c-a961aa97bddc)
