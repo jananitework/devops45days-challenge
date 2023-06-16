@@ -570,3 +570,6 @@ tls_private_key = <sensitive>
 
 Reference: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret
 https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-powershell?tabs=bash#create-a-service-principal
+
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/85c8731e-fde3-48b2-ae1c-178a7cd0296c)
+
