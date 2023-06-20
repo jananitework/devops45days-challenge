@@ -416,7 +416,7 @@ Application Insights "trigger-blob-upload" was created for this Function App. Yo
 
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/4f17d94b-0f7c-4484-992e-872dfabccccd)
 
-## Deploy Azure functions using VC code
+## 4.Deploy Azure functions using VS code
 
 ### Prerequisities 
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/7a31a0fd-c5bb-425d-a941-f5788d5d6674)
@@ -601,9 +601,14 @@ Check if the local settings is updated in remote
 
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/f27b684d-a472-4f3c-8c6e-b5a026156acf)
 
+### Upload a new blob and check azure functions monitor
 
-**DEBUGGING ERRORS:
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/af52eeaa-ceab-43be-8906-a6ef5282b2b1)
+
+# DEBUGGING ERRORS:
+
 - If the deployment fails, please check "AzureWebJobsStorage" is set in local.settings.json
-- Check if the storage account connection sting is correct.**
+- If deployment fails, check if the storage account connection sting is correct.
+- If Trigger fails for some package dependency, please update requirement.txt
 
 
