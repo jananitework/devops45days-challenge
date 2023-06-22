@@ -12,5 +12,5 @@ output "tls_private_key" {
 }
 
 output "state_file_path" {
-  value = data.terraform_remote_state.state.outputs.path
+  value = data.terraform_remote_state.state.outputs
 }
