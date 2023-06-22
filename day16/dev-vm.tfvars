@@ -1,0 +1,8 @@
+resource_group_location = "central india"
+resource_group_name = "rg16"
+vnet_cidr = "10.0.0.0/16"
+subnet_cidr = "10.0.1.0/24"
+vm_name = "task16-vm"
+username = "task16-user"
+storage_account_name= "task16sa"
+container_name = "tfstate"
