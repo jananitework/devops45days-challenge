@@ -84,3 +84,16 @@ argocd-server                      ClusterIP      10.0.235.142   <none>         
 https://github.com/jananitework/devops45days-challenge/tree/main/cicd/ArgoCD/deployments
 
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/a5a8c46f-015f-44b2-b821-86c6b342b97e)
+
+
+### Once pod is running,you should be able to see the django-app pod and service
+
+```
+meera [ ~ ]$ kubectl get pods -o wide
+NAME         READY   STATUS    RESTARTS       AGE     IP            NODE                                NOMINATED NODE   READINESS GATES
+django-app   1/1     Running   1 (3m8s ago)   7m50s   10.244.0.16   aks-agentpool-86582989-vmss000001   <none>           <none>
+meera [ ~ ]$ kubectl get svc -o wide
+NAME            TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE     SELECTOR
+django-app-lb   LoadBalancer   10.0.221.232   20.244.57.226   8000:32564/TCP   7m54s   app=webapp
+kubernetes      ClusterIP      10.0.0.1       <none>          443/TCP          3h      <none>
+```
