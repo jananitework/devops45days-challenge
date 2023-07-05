@@ -97,3 +97,7 @@ NAME            TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          A
 django-app-lb   LoadBalancer   10.0.221.232   20.244.57.226   8000:32564/TCP   7m54s   app=webapp
 kubernetes      ClusterIP      10.0.0.1       <none>          443/TCP          3h      <none>
 ```
+
+### Your app should be succesfully launched in browser
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/97edee3e-b27b-4430-a704-2a098cc16298)
+
