@@ -1,9 +1,9 @@
-# Jenkins installation and pipeline configuration
+# Jenkins pipeline configuration and github webhook configuration
 
-2.1.Create jenkins in azure vm. 
+### Install docker in jenkins vm and make sure the jenkins user has the permission for docker
 
-2.2.Create a webhook for every new push to github
+### Install az cli and grant permissions to access the ACR
 
-2.3.Create a jenkins file to checkout source code, build the image and push to acr with new build number
 
-#####Checking webhook triggers 13
+
+
