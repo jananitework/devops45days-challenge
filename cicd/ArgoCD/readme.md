@@ -1,25 +1,23 @@
-# Argocd
+# Argocd Installation
 
-3.2. Install Argo CD on the Kubernetes cluster.
+### Run the following command to add the ArgoCD Helm repository:
 
-3.3. Set up a Git repository for Argo CD to track the changes in the Helm charts and Kubernetes manifests.
-
-3.4. Create a Helm chart for the Java application that includes the Kubernetes manifests and Helm values.
-
-3.5 Add the Helm chart to the Git repository that Argo CD is tracking.
-
-
-meera [ ~ ]$ kubectl create namespace argocd
-namespace/argocd created
+```
 meera [ ~ ]$ helm repo add argo https://argoproj.github.io/argo-helm
 "argo" already exists with the same configuration, skipping
-meera [ ~ ]$ helm repo update
-Hang tight while we grab the latest from your chart repositories...
-...Successfully got an update from the "argo" chart repository
-Update Complete. ⎈Happy Helming!⎈
+```
+
+### Create a namespace for ArgoCD:
+```
+meera [ ~ ]$ kubectl create namespace argocd
+namespace/argocd created
+```
+
+### Install ArgoCD using Helm, specifying the release name and namespace:
+```
 meera [ ~ ]$ helm install argocd argo/argo-cd --namespace argocd --create-namespace
 NAME: argocd
-LAST DEPLOYED: Wed Jul  5 14:55:12 2023
+LAST DEPLOYED: Wed Jul  5 16:45:37 2023
 NAMESPACE: argocd
 STATUS: deployed
 REVISION: 1
@@ -41,28 +39,43 @@ After reaching the UI the first time you can login with username: admin and the 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 (You should delete the initial secret afterwards as suggested by the Getting Started Guide: https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
+```
 
+### Check the installed services and deployments
 
-meera [ ~ ]$ kubectl get pods -n argocd
-NAME                                                READY   STATUS    RESTARTS   AGE
-argocd-application-controller-0                     1/1     Running   0          58s
-argocd-applicationset-controller-7458b46d87-7b7hv   1/1     Running   0          58s
-argocd-dex-server-5f94cc7b99-gbbj7                  1/1     Running   0          58s
-argocd-notifications-controller-7bf448c96b-bh5gm    1/1     Running   0          58s
-argocd-redis-7b5cf6cdc8-hqtmf                       1/1     Running   0          58s
-argocd-repo-server-78cd99dbff-57cgn                 1/1     Running   0          58s
-argocd-server-f65bdb94-xll9g                        1/1     Running   0          58s
-meera [ ~ ]$ 
+```
 meera [ ~ ]$ kubectl get svc -n argocd
 NAME                               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE
-argocd-applicationset-controller   ClusterIP   10.0.26.164    <none>        7000/TCP            68s
-argocd-dex-server                  ClusterIP   10.0.37.190    <none>        5556/TCP,5557/TCP   68s
-argocd-redis                       ClusterIP   10.0.254.164   <none>        6379/TCP            68s
-argocd-repo-server                 ClusterIP   10.0.154.197   <none>        8081/TCP            68s
-argocd-server                      ClusterIP   10.0.191.231   <none>        80/TCP,443/TCP      68s
+argocd-applicationset-controller   ClusterIP   10.0.184.30    <none>        7000/TCP            20s
+argocd-dex-server                  ClusterIP   10.0.168.7     <none>        5556/TCP,5557/TCP   20s
+argocd-redis                       ClusterIP   10.0.245.49    <none>        6379/TCP            20s
+argocd-repo-server                 ClusterIP   10.0.14.169    <none>        8081/TCP            20s
+argocd-server                      ClusterIP   10.0.235.142   <none>        80/TCP,443/TCP      20s
 
+meera [ ~ ]$ kubectl get deploy -n argocd
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+argocd-applicationset-controller   1/1     1            1           87s
+argocd-dex-server                  1/1     1            1           87s
+argocd-notifications-controller    1/1     1            1           87s
+argocd-redis                       1/1     1            1           87s
+argocd-repo-server                 1/1     1            1           87s
+argocd-server                      1/1     1            1           87s
+```
 
-meera [ ~ ]$ kubectl expose deploy argocd-server -n argocd --port=8000 --name=argocd-lb --target-port=8000 --type=LoadBalancer
-service/argocd-lb exposed
+To access the argocd UI, expose the argocd-server deployment using loadbalancer service
 
+```
+meera [ ~ ]$ kubectl expose deploy argocd-server -n argocd --port=8080 --target-port=8080 --name=argo-lb --type=LoadBalancer
+service/argo-lb exposed
+
+meera [ ~ ]$ kubectl get svc -n argocd
+NAME                               TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)             AGE
+argo-lb                            LoadBalancer   10.0.136.92    20.219.180.65   8080:30524/TCP      13s
+argocd-applicationset-controller   ClusterIP      10.0.184.30    <none>          7000/TCP            2m24s
+argocd-dex-server                  ClusterIP      10.0.168.7     <none>          5556/TCP,5557/TCP   2m24s
+argocd-redis                       ClusterIP      10.0.245.49    <none>          6379/TCP            2m24s
+argocd-repo-server                 ClusterIP      10.0.14.169    <none>          8081/TCP            2m24s
+argocd-server                      ClusterIP      10.0.235.142   <none>          80/TCP,443/TCP      2m24s
+```
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/970d37a0-76f5-49da-a3a6-a99898cbd06f)
 
