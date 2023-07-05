@@ -62,7 +62,7 @@ argocd-repo-server                 1/1     1            1           87s
 argocd-server                      1/1     1            1           87s
 ```
 
-To access the argocd UI, expose the argocd-server deployment using loadbalancer service
+### To access the argocd UI, expose the argocd-server deployment using loadbalancer service
 
 ```
 meera [ ~ ]$ kubectl expose deploy argocd-server -n argocd --port=8080 --target-port=8080 --name=argo-lb --type=LoadBalancer
@@ -79,3 +79,8 @@ argocd-server                      ClusterIP      10.0.235.142   <none>         
 ```
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/970d37a0-76f5-49da-a3a6-a99898cbd06f)
 
+### Configure the git repo which contains the k8s manifests for deploying the django app
+
+https://github.com/jananitework/devops45days-challenge/tree/main/cicd/ArgoCD/deployments
+
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/a5a8c46f-015f-44b2-b821-86c6b342b97e)
