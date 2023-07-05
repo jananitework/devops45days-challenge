@@ -34,6 +34,7 @@
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/63cb79e8-e201-4f47-90c9-a776b9b7f39f)
 
 - Create a pod.yaml file to run the djangoapp as pod and expose it via loadbalancer service.
+   - https://github.com/jananitework/devops45days-challenge/blob/main/cicd/Django-webapp/django-app-pod-svc.yaml
 
 - Note : if there is an issue with pulling images run the following command
 
