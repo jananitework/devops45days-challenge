@@ -3,6 +3,8 @@
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/1ac155c6-fa30-4ba0-99b9-418811f2402f)
 
 
+# E2E demo : https://github.com/jananitework/devops45days-challenge/blob/main/cicd/e2e-demo/readme.md
+
 # Prerequisites 
 
 1. Vm1 : To develop the source code for django and containerize it 
