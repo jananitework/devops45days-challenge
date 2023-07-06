@@ -20,3 +20,14 @@
 ![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/65c746cb-1cbe-4965-a1c4-3d17f79bdc6d)
 
 
+# III. Check ArgoCD UI.
+
+## Argo CD:
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/b229066e-1c3a-4f78-8cb5-f997f9599721)
+
+## New deployments and service
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/c216eaaf-a66d-4ee6-af32-e3e82f677523)
+
+## Latest changes
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/6dc77d6d-6eb4-400b-9e07-afb772543cb1)
+
