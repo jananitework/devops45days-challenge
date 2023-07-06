@@ -49,11 +49,25 @@ Make sure there is a green tick near the configured webhook.
 
 ## Step4. Write the jenkins declarative file with following stages
 
+https://github.com/jananitework/devops45days-challenge/blob/main/cicd/Jenkins/Jenkinsfile
+
 1. Checkout the source code of django-web-app for every new push/pr
 2. Build the docker image with new tag (build number is the tag)
 3. Push the artifacts to ACR
 4. Checkout the repository which has the k8s manifests for deploying django-web-app
-5. Update the image of the django-web-app with the latest image tag
+5. Update the image of the django-web-app with the latest image tag.
+
+Note: In jenkins declarative pipeline , check the tab GitHub hook trigger for GITScm polling
+
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/f5f8f185-fe98-4887-b554-e4317b06018a)
+
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/f8befbb7-8197-4888-a2f0-8e64bc9def38)
+
+![image](https://github.com/jananitework/devops45days-challenge/assets/136428700/d385e611-643f-4c0d-bc57-2a9f564cbe00)
+
+
+
+
 
 
 
