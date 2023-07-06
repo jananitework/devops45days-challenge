@@ -22,7 +22,7 @@ pipeline {
                     sh '''
                     cd cicd/Django-webapp
                     echo 'Buid Docker Image'
-                    docker build -t samplewebapp:${BUILD_NUMBER} .
+                    docker build -t samplewebapp:${IMAGE_TAG} .
                     '''
                 }
             }
@@ -33,8 +33,8 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to ACR'
-                    docker tag samplewebapp:${BUILD_NUMBER} cicddjangoimages.azurecr.io/samplewebapp:${BUILD_NUMBER}
-                    docker push cicddjangoimages.azurecr.io/samplewebapp:${BUILD_NUMBER}
+                    docker tag samplewebapp:${BUILD_NUMBER} cicddjangoimages.azurecr.io/samplewebapp:${IMAGE_TAG}
+                    docker push cicddjangoimages.azurecr.io/samplewebapp:${IMAGE_TAG}
                     '''
                 }
             }
@@ -54,7 +54,7 @@ pipeline {
                     sh '''
                     cd cicd/ArgoCD/deployments/
                     cat django-app-pod-svc.yaml
-                    sed -i "s/replacetag/${BUILD_NUMBER}/g" django-app-pod-svc.yaml
+                    sed -i "s/replacetag/${IMAGE_TAG}/g" django-app-pod-svc.yaml
                     cat django-app-pod-svc.yaml
                     git add django-app-pod-svc.yaml
                     git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
