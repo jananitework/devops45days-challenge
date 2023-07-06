@@ -33,7 +33,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to ACR'
-                    docker tag samplewebapp:${BUILD_NUMBER} cicddjangoimages.azurecr.io/samplewebapp:${IMAGE_TAG}
+                    docker tag samplewebapp:${IMAGE_TAG} cicddjangoimages.azurecr.io/samplewebapp:${IMAGE_TAG}
                     docker push cicddjangoimages.azurecr.io/samplewebapp:${IMAGE_TAG}
                     '''
                 }
