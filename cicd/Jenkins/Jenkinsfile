@@ -1,0 +1,68 @@
+pipeline {
+    
+    agent any 
+    
+    environment {
+        IMAGE_TAG = "${BUILD_NUMBER}"
+    }
+    
+    stages {
+        
+        stage('Stage 1. Checkout source code repo'){
+            steps { 
+                checkout scmGit(branches: [[name: 'main']], 
+                extensions: [], 
+                userRemoteConfigs: [[credentialsId: '4710122c-2162-4e37-9031-dfa63af88bb6', url: 'git@github.com:jananitework/devops45days-challenge.git']])
+           }
+        }
+
+        stage('Stage 2. Build Docker image '){
+            steps{
+                script{
+                    sh '''
+                    cd cicd/Django-webapp
+                    echo 'Buid Docker Image'
+                    docker build -t samplewebapp:${BUILD_NUMBER} .
+                    '''
+                }
+            }
+        }
+
+        stage('Stage 3. Push the artifacts to ACR'){
+           steps{
+                script{
+                    sh '''
+                    echo 'Push to ACR'
+                    docker tag samplewebapp:${BUILD_NUMBER} cicddjangoimages.azurecr.io/samplewebapp:${BUILD_NUMBER}
+                    docker push cicddjangoimages.azurecr.io/samplewebapp:${BUILD_NUMBER}
+                    '''
+                }
+            }
+        }
+        
+        stage('Stage 4. Checkout K8S manifest SCM'){
+            steps {
+                git branch: 'main', 
+                credentialsId: '4710122c-2162-4e37-9031-dfa63af88bb6', 
+                url: 'https://github.com/jananitework/devops45days-challenge.git'
+            }
+        }
+        
+        stage('Stage 5. Update K8S manifest & push to Repo'){
+            steps {
+                script{
+                    sh '''
+                    cd cicd/ArgoCD/deployments/
+                    cat django-app-pod-svc.yaml
+                    sed -i "s/replacetag/${BUILD_NUMBER}/g" django-app-pod-svc.yaml
+                    cat django-app-pod-svc.yaml
+                    git add django-app-pod-svc.yaml
+                    git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                    git remote -v
+                    #git push
+                    '''                        
+                }
+            }
+        }
+    }
+}
